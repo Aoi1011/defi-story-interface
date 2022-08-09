@@ -17,22 +17,25 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <div className="mt-3">
-        <Navbar>
-          <li className="mr-6">
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li className="mr-6">
-            <Link href="#">
-              <a>About</a>
-            </Link>
-          </li>
-          <li className="mr-6">
-            <a href="#">GitHub</a>
-          </li>
-        </Navbar>
+      <div className="mt-32 mx-8">
+        <div className="border-b-2 mb-8">
+          <Navbar>
+            <li className="mr-6">
+              <Link href="/">
+                <a>Home</a>
+              </Link>
+            </li>
+            <li className="mr-6">
+              <Link href="#">
+                <a>About</a>
+              </Link>
+            </li>
+            <li className="mr-6">
+              <a href="#">GitHub</a>
+            </li>
+          </Navbar>
+        </div>
+
         <BlogGallery posts={allBlogs} />
       </div>
     </div>
