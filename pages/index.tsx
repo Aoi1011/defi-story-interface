@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <div className="mt-32 mx-8">
+      <div className="mt-32 mx-8 lg:mx-52">
         <div className="border-b-2 mb-8">
           <Navbar>
             <li className="mr-6">
