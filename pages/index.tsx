@@ -1,14 +1,19 @@
 import React from "react";
-import Link from "next/link";
 
+import Link from "next/link";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+
 import Header from "../components/Header";
 import { Navbar } from "../components/Navbar";
 import styles from "../styles/Home.module.css";
+import { getAllPosts } from "../utils/Content";
+import { BlogGallery } from "../components/BlogGallery";
 
 const Home: NextPage = () => {
+  const allBlogs = getAllPosts();
+
   return (
     <div>
       <Header />
@@ -28,6 +33,7 @@ const Home: NextPage = () => {
             <a href="#">GitHub</a>
           </li>
         </Navbar>
+        <BlogGallery posts={allBlogs} />
       </div>
     </div>
   );
