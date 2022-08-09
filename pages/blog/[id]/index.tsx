@@ -1,3 +1,5 @@
+import React from "react";
+
 import blogs from "../../../blogs.json";
 
 const Blog = () => {
