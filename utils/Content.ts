@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import blogData from "../blogs.json";
+
 export interface BlogItems {
   id: string;
   title: string;
@@ -12,15 +14,15 @@ export function getAllPosts() {
   console.log(baseURL);
   let data: BlogItems[] = [];
 
-  axios
-    .get(`${baseURL}/blogs`)
-    .then((res) => {
-      data = res.data as BlogItems[];
-    })
-    .catch((e) => {
-      console.error(e);
-      return [];
-    });
+  // axios
+  //   .get(`${baseURL}/blogs`)
+  //   .then((res) => {
+  //     data = res.data as BlogItems[];
+  //   })
+  //   .catch((e) => {
+  //     console.error(e);
+  //     return [];
+  //   });
 
-  return data;
+  return blogData;
 }

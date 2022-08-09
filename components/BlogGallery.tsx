@@ -11,6 +11,14 @@ export type IBlogGalleryProps = {
 };
 
 const BlogGallery = (props: IBlogGalleryProps) => {
+  const formatUtcDate = (date: string) => {
+    const formatDate = new Date(date);
+
+    return `${formatDate.getFullYear()} ${formatDate.toLocaleString("en-us", {
+      month: "short",
+    })} ${formatDate.getDate()}`;
+  };
+
   return (
     <>
       <ul>
@@ -22,9 +30,7 @@ const BlogGallery = (props: IBlogGalleryProps) => {
               </a>
             </Link>
 
-            <div className="text-right">
-              {format(new Date(elt.created_at), "LLL d, yyyy")}
-            </div>
+            <div className="text-right">{formatUtcDate(elt.created_at)}</div>
           </li>
         ))}
       </ul>
