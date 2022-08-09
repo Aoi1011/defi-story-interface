@@ -26,7 +26,6 @@ const Blog = () => {
             Published 19 February 2019
           </p>
         </div>
-
         <p className="py-6">
           👋 Welcome fellow{" "}
           <a
@@ -39,21 +38,18 @@ const Blog = () => {
           starting point to create your own minimal monochrome blog using
           Tailwind CSS and vanilla Javascript.
         </p>
-
         <p className="py-6">
           The basic blog page layout is available and all using the default
           Tailwind CSS classes (although there are a few hardcoded style tags).
           If you are going to use this in your project, you will want to convert
           the classes into components.
         </p>
-
-        <h1 className="py-2 font-sans">Heading 1</h1>
+        <h1 className="py-2 font-sans">Heading 1</h1>``
         <h2 className="py-2 font-sans">Heading 2</h2>
         <h3 className="py-2 font-sans">Heading 3</h3>
         <h4 className="py-2 font-sans">Heading 4</h4>
         <h5 className="py-2 font-sans">Heading 5</h5>
         <h6 className="py-2 font-sans">Heading 6</h6>
-
         <p className="py-6">
           Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus
           purus, in mattis tortor sollicitudin pretium. Phasellus at diam
@@ -68,7 +64,6 @@ const Blog = () => {
           torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla
           eget sem dictum elementum.
         </p>
-
         <ol>
           <li className="py-3">
             Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero
@@ -94,13 +89,11 @@ const Blog = () => {
             elementum odio et, consequat tellus.
           </li>
         </ol>
-
         <blockquote className="border-l-4 border-green-500 italic my-8 pl-8 md:pl-12">
           Example of blockquote - Lorem ipsum dolor sit amet, consectetur
           adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet
           ligula.
         </blockquote>
-
         <p className="py-6">Example code block:</p>
         <pre className="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4">
           {/* <code className="break-words whitespace-pre-wrap">

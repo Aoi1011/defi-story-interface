@@ -23,14 +23,13 @@ const BlogGallery = (props: IBlogGalleryProps) => {
     <>
       <ul>
         {props.posts.map((elt) => (
-          <li key={elt.id} className="mb-3 flex justify-between">
+          <li key={elt.id} className="mb-3">
+            <div className="">{formatUtcDate(elt.created_at)}</div>
             <Link href="/blog/[slug]" as={`/blog/${elt.id}`}>
               <a>
                 <h2>{elt.title}</h2>
               </a>
             </Link>
-
-            <div className="text-right">{formatUtcDate(elt.created_at)}</div>
           </li>
         ))}
       </ul>

@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div className="mt-3">
         <Navbar>
           <li className="mr-6">
             <Link href="/">
