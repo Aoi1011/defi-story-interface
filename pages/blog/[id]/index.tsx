@@ -1,3 +1,5 @@
+import blogs from "../../../blogs.json";
+
 const Blog = () => {
   return (
     <div className="container w-full md:max-w-3xl mx-auto pt-20">
