@@ -1,6 +1,7 @@
 import React from "react";
 
 import Link from "next/link";
+import { format } from "date-fns";
 
 import { Pagination, IPaginationProps } from "./Pagination";
 import { BlogItems } from "../utils/Content";
