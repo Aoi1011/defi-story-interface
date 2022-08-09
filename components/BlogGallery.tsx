@@ -26,7 +26,9 @@ const BlogGallery = (props: IBlogGalleryProps) => {
           <li key={elt.id} className="mb-11">
             <div className="">{formatUtcDate(elt.created_at)}</div>
             <Link href="/blog/[slug]" as={`/blog/${elt.id}`} className="">
-              <h2 className="text-3xl cursor-pointer">{elt.title}</h2>
+              <a className="hover:underline">
+                <h2 className="text-3xl cursor-pointer">{elt.title}</h2>
+              </a>
             </Link>
           </li>
         ))}
