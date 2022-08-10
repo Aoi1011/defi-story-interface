@@ -14,15 +14,23 @@ export function getAllPosts() {
   console.log(baseURL);
   let data: BlogItems[] = [];
 
-  // axios
-  //   .get(`${baseURL}/blogs`)
-  //   .then((res) => {
-  //     data = res.data as BlogItems[];
-  //   })
-  //   .catch((e) => {
-  //     console.error(e);
-  //     return [];
-  //   });
-
-  return blogData;
+  axios
+    .get(`${baseURL}/blogs`)
+    .then((res) => {
+      data = res.data;
+      // console.log(data);
+      return data;
+    })
+    .catch((e) => {
+      console.error(e);
+      return [];
+    });
 }
+
+export const formatUtcDate = (date: string) => {
+  const formatDate = new Date(date);
+
+  return `${formatDate.getFullYear()} ${formatDate.toLocaleString("en-us", {
+    month: "short",
+  })} ${formatDate.getDate()}`;
+};
