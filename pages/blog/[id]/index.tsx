@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 import axios from "axios";
+import { parse } from "react-html-parser";
 
 import blogs from "../../../blogs.json";
 import Link from "next/link";
@@ -12,14 +13,14 @@ import { BlogItems } from "../../../utils/Content";
 const Blog = () => {
   const router = useRouter();
   const [blog, setBlog] = useState<BlogItems>({} as BlogItems);
-  const id = router.query.id;
-  console.log(router.query);
 
   useEffect(() => {
-    function getBlogById() {
+    async function getBlogById() {
       const baseURL = process.env.NEXT_PUBLIC_HOST;
+      const id = router.query.id;
+      console.log(router.query.id);
 
-      axios
+      await axios
         .get(`${baseURL}/blog/${id}`)
         .then((res) => {
           let data = res.data;
@@ -61,10 +62,10 @@ const Blog = () => {
                 {blog.created_at}
               </p>
             </div>
-            {blog.content}
+            {parse(blog.content)}
           </div>
 
-          <div className="text-base md:text-sm text-gray-500 px-4 py-6">
+          {/* <div className="text-base md:text-sm text-gray-500 px-4 py-6">
             Tags:{" "}
             <a
               href="#"
@@ -79,7 +80,7 @@ const Blog = () => {
             >
               Link
             </a>
-          </div>
+          </div> */}
 
           <hr className="border-b-2 border-gray-400 mb-8 mx-4" />
 

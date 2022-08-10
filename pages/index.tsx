@@ -17,7 +17,7 @@ const Home: NextPage = () => {
 
   function getAllBlogs() {
     const baseURL = process.env.NEXT_PUBLIC_HOST;
-    console.log(baseURL);
+
     axios
       .get(`${baseURL}/blogs`)
       .then((res) => {
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     getAllBlogs();
-  });
+  }, []);
 
   return (
     <div>
