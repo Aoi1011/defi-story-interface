@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 
+import Link from "next/link";
 import { useRouter } from "next/router";
 import axios from "axios";
 import parse from "html-react-parser";
 
-import blogs from "../../../blogs.json";
-import Link from "next/link";
-import PostTitle from "../../../components/PostTitle";
-import { GetStaticProps } from "next";
 import { BlogItems, formatUtcDate } from "../../../utils/Content";
 
 const Blog = () => {
@@ -67,68 +64,11 @@ const Blog = () => {
             </div>
             {parse(blog.content)}
           </div>
-
-          {/* <div className="text-base md:text-sm text-gray-500 px-4 py-6">
-            Tags:{" "}
-            <a
-              href="#"
-              className="text-base md:text-sm text-green-500 no-underline hover:underline"
-            >
-              Link
-            </a>{" "}
-            .{" "}
-            <a
-              href="#"
-              className="text-base md:text-sm text-green-500 no-underline hover:underline"
-            >
-              Link
-            </a>
-          </div> */}
-
           <hr className="border-b-2 border-gray-400 mb-8 mx-4" />
-
-          {/* <div className="font-sans flex justify-between content-center px-4 pb-12">
-            <div className="text-left">
-              <span className="text-xs md:text-sm font-normal text-gray-600">
-                &lt; Previous Post
-              </span>
-              <br />
-              <p>
-                <a
-                  href="#"
-                  className="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline"
-                >
-                  Blog title
-                </a>
-              </p>
-            </div>
-            <div className="text-right">
-              <span className="text-xs md:text-sm font-normal text-gray-600">
-                Next Post &gt;
-              </span>
-              <br />
-              <p>
-                <a
-                  href="#"
-                  className="break-normal text-base md:text-sm text-green-500 font-bold no-underline hover:underline"
-                >
-                  Blog title
-                </a>
-              </p>
-            </div>
-          </div> */}
         </div>
       )}
     </>
   );
 };
-
-// export const getStaticProps: GetStaticProps = async ({
-//   params,
-//   preview = false,
-//   previewData,
-// }) => {
-//   const data =
-// }
 
 export default Blog;

@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import axios from "axios";
 
 import Header from "../components/Header";
 import { Navbar } from "../components/Navbar";
-import styles from "../styles/Home.module.css";
-import { getAllPosts, BlogItems } from "../utils/Content";
+import { BlogItems } from "../utils/Content";
 import { BlogGallery } from "../components/BlogGallery";
 
 const Home: NextPage = () => {
