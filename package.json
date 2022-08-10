@@ -11,10 +11,10 @@
   "dependencies": {
     "axios": "^0.27.2",
     "date-fns": "^2.29.1",
+    "html-react-parser": "^3.0.1",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-html-parser": "^2.0.2"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/node": "18.6.4",

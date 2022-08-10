@@ -26,3 +26,11 @@ export function getAllPosts() {
       return [];
     });
 }
+
+export const formatUtcDate = (date: string) => {
+  const formatDate = new Date(date);
+
+  return `${formatDate.getFullYear()} ${formatDate.toLocaleString("en-us", {
+    month: "short",
+  })} ${formatDate.getDate()}`;
+};

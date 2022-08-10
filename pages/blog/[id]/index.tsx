@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 import axios from "axios";
-import { parse } from "react-html-parser";
+import parse from "html-react-parser";
 
 import blogs from "../../../blogs.json";
 import Link from "next/link";
 import PostTitle from "../../../components/PostTitle";
 import { GetStaticProps } from "next";
-import { BlogItems } from "../../../utils/Content";
+import { BlogItems, formatUtcDate } from "../../../utils/Content";
 
 const Blog = () => {
   const router = useRouter();
   const [blog, setBlog] = useState<BlogItems>({} as BlogItems);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     async function getBlogById() {
@@ -26,10 +27,12 @@ const Blog = () => {
           let data = res.data;
           console.log(data);
           setBlog(data);
+          setIsVisible(true);
         })
         .catch((e) => {
           console.error(e);
-          return [];
+          setBlog({} as BlogItems);
+          setIsVisible(true);
         });
     }
 
@@ -38,8 +41,8 @@ const Blog = () => {
 
   return (
     <>
-      {router.isFallback ? (
-        <PostTitle>Loading...</PostTitle>
+      {!isVisible ? (
+        <h1>Loading</h1>
       ) : (
         <div className="container w-full md:max-w-3xl mx-auto pt-20">
           <div
@@ -59,7 +62,7 @@ const Blog = () => {
                 {blog.title}
               </h1>
               <p className="text-sm md:text-base font-normal text-gray-600">
-                {blog.created_at}
+                {formatUtcDate(blog.created_at)}
               </p>
             </div>
             {parse(blog.content)}
@@ -84,7 +87,7 @@ const Blog = () => {
 
           <hr className="border-b-2 border-gray-400 mb-8 mx-4" />
 
-          <div className="font-sans flex justify-between content-center px-4 pb-12">
+          {/* <div className="font-sans flex justify-between content-center px-4 pb-12">
             <div className="text-left">
               <span className="text-xs md:text-sm font-normal text-gray-600">
                 &lt; Previous Post
@@ -113,7 +116,7 @@ const Blog = () => {
                 </a>
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </>
