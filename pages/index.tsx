@@ -15,24 +15,24 @@ import { BlogGallery } from "../components/BlogGallery";
 const Home: NextPage = () => {
   const [blogs, setBlogs] = useState<BlogItems[]>([] as BlogItems[]);
 
-  useEffect(() => {
-    function getAllBlogs() {
-      const baseURL = process.env.NEXT_PUBLIC_HOST;
-      console.log(baseURL);
-      axios
-        .get(`${baseURL}/blogs`)
-        .then((res) => {
-          let data = res.data;
-          setBlogs(data);
-        })
-        .catch((e) => {
-          console.error(e);
-          return [];
-        });
-    }
+  function getAllBlogs() {
+    const baseURL = process.env.NEXT_PUBLIC_HOST;
+    console.log(baseURL);
+    axios
+      .get(`${baseURL}/blogs`)
+      .then((res) => {
+        let data = res.data;
+        setBlogs(data);
+      })
+      .catch((e) => {
+        console.error(e);
+        return [];
+      });
+  }
 
+  useEffect(() => {
     getAllBlogs();
-  }, [blogs]);
+  });
 
   return (
     <div>

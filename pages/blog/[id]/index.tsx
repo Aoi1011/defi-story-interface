@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
+import axios from "axios";
 
 import blogs from "../../../blogs.json";
 import Link from "next/link";
 import PostTitle from "../../../components/PostTitle";
 import { GetStaticProps } from "next";
+import { BlogItems } from "../../../utils/Content";
 
-const Blog = ({ blog, blogs }) => {
+const Blog = () => {
   const router = useRouter();
+  const [blog, setBlog] = useState<BlogItems>({} as BlogItems);
+  const id = router.query.id;
+  console.log(router.query);
+
+  useEffect(() => {
+    function getBlogById() {
+      const baseURL = process.env.NEXT_PUBLIC_HOST;
+
+      axios
+        .get(`${baseURL}/blog/${id}`)
+        .then((res) => {
+          let data = res.data;
+          console.log(data);
+          setBlog(data);
+        })
+        .catch((e) => {
+          console.error(e);
+          return [];
+        });
+    }
+
+    getBlogById();
+  }, []);
 
   return (
     <>
